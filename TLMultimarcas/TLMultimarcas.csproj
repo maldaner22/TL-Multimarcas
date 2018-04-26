@@ -162,6 +162,75 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Citroen\Aircross.png" />
+    <Content Include="Images\Citroen\C3.png" />
+    <Content Include="Images\Citroen\C4Lounge.png" />
+    <Content Include="Images\Citroen\C4PICASSO.png" />
+    <Content Include="Images\Citroen\GRANDC4PICASSO.png" />
+    <Content Include="Images\Fiat\Argo.png" />
+    <Content Include="Images\Fiat\Cronos.png" />
+    <Content Include="Images\Fiat\Doblô.png" />
+    <Content Include="Images\Fiat\DoblôAdventure.png" />
+    <Content Include="Images\Fiat\Fiat 500.png" />
+    <Content Include="Images\Fiat\Fiorino.png" />
+    <Content Include="Images\Fiat\GrandSiena.png" />
+    <Content Include="Images\Fiat\Mobi.png" />
+    <Content Include="Images\Fiat\Strada.png" />
+    <Content Include="Images\Fiat\Toro.png" />
+    <Content Include="Images\Fiat\Uno.png" />
+    <Content Include="Images\Fiat\Weekend.png" />
+    <Content Include="Images\Ford\Ecosport.png" />
+    <Content Include="Images\Ford\Edge.png" />
+    <Content Include="Images\Ford\Focus.png" />
+    <Content Include="Images\Ford\FocusFastback.png" />
+    <Content Include="Images\Ford\Fusion.png" />
+    <Content Include="Images\Ford\FusionHybrid.png" />
+    <Content Include="Images\Ford\Ka.png" />
+    <Content Include="Images\Ford\KaSedan.png" />
+    <Content Include="Images\Ford\Mustang.png" />
+    <Content Include="Images\Ford\NewFiesta.png" />
+    <Content Include="Images\Ford\NewFiestaSedan.png" />
+    <Content Include="Images\Ford\Ranger.png" />
+    <Content Include="Images\Honda\Accord.png" />
+    <Content Include="Images\Honda\City.png" />
+    <Content Include="Images\Honda\Civic.png" />
+    <Content Include="Images\Honda\CivicSI.png" />
+    <Content Include="Images\Honda\CR-V.png" />
+    <Content Include="Images\Honda\Fit.png" />
+    <Content Include="Images\Honda\HR-V.png" />
+    <Content Include="Images\Honda\WR-V.png" />
+    <Content Include="Images\Peugeot\2008.png" />
+    <Content Include="Images\Peugeot\208.png" />
+    <Content Include="Images\Peugeot\3008.png" />
+    <Content Include="Images\Peugeot\308.png" />
+    <Content Include="Images\Peugeot\408.png" />
+    <Content Include="Images\Peugeot\5008.png" />
+    <Content Include="Images\Peugeot\Expert.png" />
+    <Content Include="Images\Peugeot\Partner.png" />
+    <Content Include="Images\Renault\Captur.png" />
+    <Content Include="Images\Renault\Duster.png" />
+    <Content Include="Images\Renault\DusterOroch.png" />
+    <Content Include="Images\Renault\Fluence.png" />
+    <Content Include="Images\Renault\KWID.png" />
+    <Content Include="Images\Renault\Logan.png" />
+    <Content Include="Images\Renault\RS 2.0.png" />
+    <Content Include="Images\Renault\Sandero.png" />
+    <Content Include="Images\Renault\Stepway.png" />
+    <Content Include="Images\Volkswagen\Amarok.png" />
+    <Content Include="Images\Volkswagen\Fox.png" />
+    <Content Include="Images\Volkswagen\Gol.png" />
+    <Content Include="Images\Volkswagen\Golf.png" />
+    <Content Include="Images\Volkswagen\GolfVariant.png" />
+    <Content Include="Images\Volkswagen\Jetta.png" />
+    <Content Include="Images\Volkswagen\Passat.png" />
+    <Content Include="Images\Volkswagen\Polo.png" />
+    <Content Include="Images\Volkswagen\Saveiro.png" />
+    <Content Include="Images\Volkswagen\SpaceFox.png" />
+    <Content Include="Images\Volkswagen\TiguanAllspace.png" />
+    <Content Include="Images\Volkswagen\Touareg.png" />
+    <Content Include="Images\Volkswagen\Up.png" />
+    <Content Include="Images\Volkswagen\Virtus.png" />
+    <Content Include="Images\Volkswagen\Voyage.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -231,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Chevrolet\" />
+    <Folder Include="Images\Hyundai\" />
+    <Folder Include="Images\Toyota\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
