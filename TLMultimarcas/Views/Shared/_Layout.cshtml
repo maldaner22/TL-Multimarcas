@@ -8,14 +8,16 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />T&L Multimarcas é nossa! <hr />
-        <img src="~/Images/Chevrolet/CamaroConversivel.png"/>
-    </div>
+    <div class="container">
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml");
+    
+        <div class="container body-content">
+            @RenderBody()
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>    
 </body>
 </html>
