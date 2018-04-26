@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,6 +163,20 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Chevrolet\CamaroConversivel.png" />
+    <Content Include="Images\Chevrolet\CamaroCupe.png" />
+    <Content Include="Images\Chevrolet\Cobalt.png" />
+    <Content Include="Images\Chevrolet\Cruze.png" />
+    <Content Include="Images\Chevrolet\CruzeSport6.png" />
+    <Content Include="Images\Chevrolet\Equinox.png" />
+    <Content Include="Images\Chevrolet\Montana.png" />
+    <Content Include="Images\Chevrolet\Onix.png" />
+    <Content Include="Images\Chevrolet\Prisma.png" />
+    <Content Include="Images\Chevrolet\S10.png" />
+    <Content Include="Images\Chevrolet\S10CabineSimples.png" />
+    <Content Include="Images\Chevrolet\Spin.png" />
+    <Content Include="Images\Chevrolet\Tracker.png" />
+    <Content Include="Images\Chevrolet\Trailblazer.png" />
     <Content Include="Images\Citroen\Aircross.png" />
     <Content Include="Images\Citroen\C3.png" />
     <Content Include="Images\Citroen\C4Lounge.png" />
@@ -199,6 +214,17 @@
     <Content Include="Images\Honda\Fit.png" />
     <Content Include="Images\Honda\HR-V.png" />
     <Content Include="Images\Honda\WR-V.png" />
+    <Content Include="Images\Hyundai\Azera.png" />
+    <Content Include="Images\Hyundai\Creta.png" />
+    <Content Include="Images\Hyundai\CretaSport.png" />
+    <Content Include="Images\Hyundai\Elantra.png" />
+    <Content Include="Images\Hyundai\HB20.png" />
+    <Content Include="Images\Hyundai\HB20RSpec.png" />
+    <Content Include="Images\Hyundai\HB20S1.png" />
+    <Content Include="Images\Hyundai\i30.png" />
+    <Content Include="Images\Hyundai\ix35.png" />
+    <Content Include="Images\Hyundai\SantaFe.png" />
+    <Content Include="Images\Hyundai\Tucson.png" />
     <Content Include="Images\Peugeot\2008.png" />
     <Content Include="Images\Peugeot\208.png" />
     <Content Include="Images\Peugeot\3008.png" />
@@ -216,6 +242,15 @@
     <Content Include="Images\Renault\RS 2.0.png" />
     <Content Include="Images\Renault\Sandero.png" />
     <Content Include="Images\Renault\Stepway.png" />
+    <Content Include="Images\Toyota\Camry.png" />
+    <Content Include="Images\Toyota\Corolla.png" />
+    <Content Include="Images\Toyota\EtiosHatch.png" />
+    <Content Include="Images\Toyota\EtiosSedan.png" />
+    <Content Include="Images\Toyota\HiluxCabineDupla.png" />
+    <Content Include="Images\Toyota\HiluxCabineSimples.png" />
+    <Content Include="Images\Toyota\Prius.png" />
+    <Content Include="Images\Toyota\RAV4.png" />
+    <Content Include="Images\Toyota\SW4.png" />
     <Content Include="Images\Volkswagen\Amarok.png" />
     <Content Include="Images\Volkswagen\Fox.png" />
     <Content Include="Images\Volkswagen\Gol.png" />
@@ -300,9 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\Chevrolet\" />
-    <Folder Include="Images\Hyundai\" />
-    <Folder Include="Images\Toyota\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
