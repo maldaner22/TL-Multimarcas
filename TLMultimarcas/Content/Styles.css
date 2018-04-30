@@ -2,6 +2,14 @@
     background-color: #fff;
 }
 
+.nav-link {
+    text-transform: uppercase;
+    font: 15px;
+    font-family: 'toyota_displayregular', Arial, Helvetica, sans-serif;
+    color: brown;
+    margin-top: 20px;
+}
+
 .city {
     color: #fff;
     font-size: 30px;
