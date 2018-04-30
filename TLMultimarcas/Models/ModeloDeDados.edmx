@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TLMultimarcasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Classe">
+          <Key>
+            <PropertyRef Name="IdClasse" />
+          </Key>
+          <Property Name="IdClasse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoClasse" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Combustivel">
+          <Key>
+            <PropertyRef Name="IdCombustivel" />
+          </Key>
+          <Property Name="IdCombustivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCombustivel" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Condicao">
+          <Key>
+            <PropertyRef Name="IdCondicao" />
+          </Key>
+          <Property Name="IdCondicao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCondicao" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cor">
+          <Key>
+            <PropertyRef Name="IdCor" />
+          </Key>
+          <Property Name="IdCor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCor" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeMarca" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdModelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeModelo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Potencia">
+          <Key>
+            <PropertyRef Name="IdPotencia" />
+          </Key>
+          <Property Name="IdPotencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorPotencia" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="NomeFuncionario" />
+            <PropertyRef Name="LoginFuncionario" />
+            <PropertyRef Name="SenhaFuncionario" />
+            <PropertyRef Name="EmailFuncionario" />
+            <PropertyRef Name="AdicionarFuncionario" />
+            <PropertyRef Name="AdicionarVeiculo" />
+            <PropertyRef Name="EditarFuncionario" />
+            <PropertyRef Name="EditarVeiculo" />
+            <PropertyRef Name="ExcluirFuncionario" />
+            <PropertyRef Name="ExcluirVeiculo" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeFuncionario" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="LoginFuncionario" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SenhaFuncionario" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailFuncionario" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="AdicionarFuncionario" Type="int" Nullable="false" />
+          <Property Name="AdicionarVeiculo" Type="int" Nullable="false" />
+          <Property Name="EditarFuncionario" Type="int" Nullable="false" />
+          <Property Name="EditarVeiculo" Type="int" Nullable="false" />
+          <Property Name="ExcluirFuncionario" Type="int" Nullable="false" />
+          <Property Name="ExcluirVeiculo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="IdVeiculo" />
+          </Key>
+          <Property Name="IdVeiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="IdModelo" Type="int" Nullable="false" />
+          <Property Name="IdMarca" Type="int" Nullable="false" />
+          <Property Name="IdClasse" Type="int" Nullable="false" />
+          <Property Name="IdPotencia" Type="int" Nullable="false" />
+          <Property Name="IdCombustivel" Type="int" Nullable="false" />
+          <Property Name="IdCor" Type="int" Nullable="false" />
+          <Property Name="IdCondicao" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Veiculo_Classe">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="IdClasse" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Combustivel">
+          <End Role="Combustivel" Type="Self.Combustivel" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Combustivel">
+              <PropertyRef Name="IdCombustivel" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCombustivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Condicao">
+          <End Role="Condicao" Type="Self.Condicao" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condicao">
+              <PropertyRef Name="IdCondicao" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCondicao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Cor">
+          <End Role="Cor" Type="Self.Cor" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cor">
+              <PropertyRef Name="IdCor" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="IdModelo" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Potencia">
+          <End Role="Potencia" Type="Self.Potencia" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Potencia">
+              <PropertyRef Name="IdPotencia" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdPotencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TLMultimarcasModelStoreContainer">
+          <EntitySet Name="Classe" EntityType="Self.Classe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Combustivel" EntityType="Self.Combustivel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Condicao" EntityType="Self.Condicao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cor" EntityType="Self.Cor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Potencia" EntityType="Self.Potencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuario].[IdUsuario] AS [IdUsuario], 
+    [Usuario].[NomeFuncionario] AS [NomeFuncionario], 
+    [Usuario].[LoginFuncionario] AS [LoginFuncionario], 
+    [Usuario].[SenhaFuncionario] AS [SenhaFuncionario], 
+    [Usuario].[EmailFuncionario] AS [EmailFuncionario], 
+    [Usuario].[AdicionarFuncionario] AS [AdicionarFuncionario], 
+    [Usuario].[AdicionarVeiculo] AS [AdicionarVeiculo], 
+    [Usuario].[EditarFuncionario] AS [EditarFuncionario], 
+    [Usuario].[EditarVeiculo] AS [EditarVeiculo], 
+    [Usuario].[ExcluirFuncionario] AS [ExcluirFuncionario], 
+    [Usuario].[ExcluirVeiculo] AS [ExcluirVeiculo]
+    FROM [dbo].[Usuario] AS [Usuario]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Veiculo_Classe" Association="Self.FK_Veiculo_Classe">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Combustivel" Association="Self.FK_Veiculo_Combustivel">
+            <End Role="Combustivel" EntitySet="Combustivel" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Condicao" Association="Self.FK_Veiculo_Condicao">
+            <End Role="Condicao" EntitySet="Condicao" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Cor" Association="Self.FK_Veiculo_Cor">
+            <End Role="Cor" EntitySet="Cor" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Modelo" Association="Self.FK_Veiculo_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Potencia" Association="Self.FK_Veiculo_Potencia">
+            <End Role="Potencia" EntitySet="Potencia" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TLMultimarcasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Classe">
+          <Key>
+            <PropertyRef Name="IdClasse" />
+          </Key>
+          <Property Name="IdClasse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoClasse" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Classe" FromRole="Classe" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Combustivel">
+          <Key>
+            <PropertyRef Name="IdCombustivel" />
+          </Key>
+          <Property Name="IdCombustivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCombustivel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Combustivel" FromRole="Combustivel" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Condicao">
+          <Key>
+            <PropertyRef Name="IdCondicao" />
+          </Key>
+          <Property Name="IdCondicao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCondicao" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Condicao" FromRole="Condicao" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Cor">
+          <Key>
+            <PropertyRef Name="IdCor" />
+          </Key>
+          <Property Name="IdCor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Cor" FromRole="Cor" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeMarca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdModelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeModelo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Modelo" FromRole="Modelo" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Potencia">
+          <Key>
+            <PropertyRef Name="IdPotencia" />
+          </Key>
+          <Property Name="IdPotencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorPotencia" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Potencia" FromRole="Potencia" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="IdVeiculo" />
+          </Key>
+          <Property Name="IdVeiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdModelo" Type="Int32" Nullable="false" />
+          <Property Name="IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="IdClasse" Type="Int32" Nullable="false" />
+          <Property Name="IdPotencia" Type="Int32" Nullable="false" />
+          <Property Name="IdCombustivel" Type="Int32" Nullable="false" />
+          <Property Name="IdCor" Type="Int32" Nullable="false" />
+          <Property Name="IdCondicao" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Classe" Relationship="Self.FK_Veiculo_Classe" FromRole="Veiculo" ToRole="Classe" />
+          <NavigationProperty Name="Combustivel" Relationship="Self.FK_Veiculo_Combustivel" FromRole="Veiculo" ToRole="Combustivel" />
+          <NavigationProperty Name="Condicao" Relationship="Self.FK_Veiculo_Condicao" FromRole="Veiculo" ToRole="Condicao" />
+          <NavigationProperty Name="Cor" Relationship="Self.FK_Veiculo_Cor" FromRole="Veiculo" ToRole="Cor" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK_Veiculo_Modelo" FromRole="Veiculo" ToRole="Modelo" />
+          <NavigationProperty Name="Potencia" Relationship="Self.FK_Veiculo_Potencia" FromRole="Veiculo" ToRole="Potencia" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="NomeFuncionario" />
+            <PropertyRef Name="LoginFuncionario" />
+            <PropertyRef Name="SenhaFuncionario" />
+            <PropertyRef Name="EmailFuncionario" />
+            <PropertyRef Name="AdicionarFuncionario" />
+            <PropertyRef Name="AdicionarVeiculo" />
+            <PropertyRef Name="EditarFuncionario" />
+            <PropertyRef Name="EditarVeiculo" />
+            <PropertyRef Name="ExcluirFuncionario" />
+            <PropertyRef Name="ExcluirVeiculo" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeFuncionario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoginFuncionario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SenhaFuncionario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailFuncionario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdicionarFuncionario" Type="Int32" Nullable="false" />
+          <Property Name="AdicionarVeiculo" Type="Int32" Nullable="false" />
+          <Property Name="EditarFuncionario" Type="Int32" Nullable="false" />
+          <Property Name="EditarVeiculo" Type="Int32" Nullable="false" />
+          <Property Name="ExcluirFuncionario" Type="Int32" Nullable="false" />
+          <Property Name="ExcluirVeiculo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Veiculo_Classe">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="IdClasse" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Combustivel">
+          <End Role="Combustivel" Type="Self.Combustivel" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Combustivel">
+              <PropertyRef Name="IdCombustivel" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCombustivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Condicao">
+          <End Role="Condicao" Type="Self.Condicao" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condicao">
+              <PropertyRef Name="IdCondicao" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCondicao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Cor">
+          <End Role="Cor" Type="Self.Cor" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cor">
+              <PropertyRef Name="IdCor" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdCor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="IdModelo" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veiculo_Potencia">
+          <End Role="Potencia" Type="Self.Potencia" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Potencia">
+              <PropertyRef Name="IdPotencia" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdPotencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TLMultimarcasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Classe" EntityType="Self.Classe" />
+          <EntitySet Name="Combustivel" EntityType="Self.Combustivel" />
+          <EntitySet Name="Condicao" EntityType="Self.Condicao" />
+          <EntitySet Name="Cor" EntityType="Self.Cor" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" />
+          <EntitySet Name="Potencia" EntityType="Self.Potencia" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Veiculo_Classe" Association="Self.FK_Veiculo_Classe">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Combustivel" Association="Self.FK_Veiculo_Combustivel">
+            <End Role="Combustivel" EntitySet="Combustivel" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Condicao" Association="Self.FK_Veiculo_Condicao">
+            <End Role="Condicao" EntitySet="Condicao" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Cor" Association="Self.FK_Veiculo_Cor">
+            <End Role="Cor" EntitySet="Cor" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Modelo" Association="Self.FK_Veiculo_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Potencia" Association="Self.FK_Veiculo_Potencia">
+            <End Role="Potencia" EntitySet="Potencia" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TLMultimarcasModelStoreContainer" CdmEntityContainer="TLMultimarcasEntities">
+          <EntitySetMapping Name="Classe">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Classe">
+              <MappingFragment StoreEntitySet="Classe">
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="TipoClasse" ColumnName="TipoClasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Combustivel">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Combustivel">
+              <MappingFragment StoreEntitySet="Combustivel">
+                <ScalarProperty Name="IdCombustivel" ColumnName="IdCombustivel" />
+                <ScalarProperty Name="TipoCombustivel" ColumnName="TipoCombustivel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Condicao">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Condicao">
+              <MappingFragment StoreEntitySet="Condicao">
+                <ScalarProperty Name="IdCondicao" ColumnName="IdCondicao" />
+                <ScalarProperty Name="TipoCondicao" ColumnName="TipoCondicao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cor">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Cor">
+              <MappingFragment StoreEntitySet="Cor">
+                <ScalarProperty Name="IdCor" ColumnName="IdCor" />
+                <ScalarProperty Name="TipoCor" ColumnName="TipoCor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="NomeMarca" ColumnName="NomeMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modelo">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Modelo">
+              <MappingFragment StoreEntitySet="Modelo">
+                <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+                <ScalarProperty Name="NomeModelo" ColumnName="NomeModelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Potencia">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Potencia">
+              <MappingFragment StoreEntitySet="Potencia">
+                <ScalarProperty Name="IdPotencia" ColumnName="IdPotencia" />
+                <ScalarProperty Name="ValorPotencia" ColumnName="ValorPotencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veiculo">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Veiculo">
+              <MappingFragment StoreEntitySet="Veiculo">
+                <ScalarProperty Name="IdVeiculo" ColumnName="IdVeiculo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="IdPotencia" ColumnName="IdPotencia" />
+                <ScalarProperty Name="IdCombustivel" ColumnName="IdCombustivel" />
+                <ScalarProperty Name="IdCor" ColumnName="IdCor" />
+                <ScalarProperty Name="IdCondicao" ColumnName="IdCondicao" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="TLMultimarcasModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NomeFuncionario" ColumnName="NomeFuncionario" />
+                <ScalarProperty Name="LoginFuncionario" ColumnName="LoginFuncionario" />
+                <ScalarProperty Name="SenhaFuncionario" ColumnName="SenhaFuncionario" />
+                <ScalarProperty Name="EmailFuncionario" ColumnName="EmailFuncionario" />
+                <ScalarProperty Name="AdicionarFuncionario" ColumnName="AdicionarFuncionario" />
+                <ScalarProperty Name="AdicionarVeiculo" ColumnName="AdicionarVeiculo" />
+                <ScalarProperty Name="EditarFuncionario" ColumnName="EditarFuncionario" />
+                <ScalarProperty Name="EditarVeiculo" ColumnName="EditarVeiculo" />
+                <ScalarProperty Name="ExcluirFuncionario" ColumnName="ExcluirFuncionario" />
+                <ScalarProperty Name="ExcluirVeiculo" ColumnName="ExcluirVeiculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
