@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="10977fe6e352483fb154f5d8ab2653f2" Name="Diagram1">
-        <EntityTypeShape EntityType="TLMultimarcasModel.Classe" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Combustivel" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Condicao" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Cor" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Marca" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Modelo" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Potencia" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Veiculo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLMultimarcasModel.Usuario" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Classe" ManuallyRouted="false" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Combustivel" ManuallyRouted="false" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Condicao" ManuallyRouted="false" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Cor" ManuallyRouted="false" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Modelo" ManuallyRouted="false" />
-        <AssociationConnector Association="TLMultimarcasModel.FK_Veiculo_Potencia" ManuallyRouted="false" />
+      <Diagram DiagramId="593040a76ec743a2917013c9b5337db9" Name="Diagram1">
+        <EntityTypeShape EntityType="TLMultimarcasModels.Classe" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Combustivel" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Condicao" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Cor" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Marca" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Modelo" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Potencia" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Veiculo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLMultimarcasModels.Usuario" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Classe" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Combustivel" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Condicao" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Cor" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Modelo" ManuallyRouted="false" />
+        <AssociationConnector Association="TLMultimarcasModels.FK_Veiculo_Potencia" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

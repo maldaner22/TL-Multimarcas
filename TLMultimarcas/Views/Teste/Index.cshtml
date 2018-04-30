@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TLMultimarcas.Models.Veiculo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdVeiculo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo.NomeModelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca.NomeMarca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classe.TipoClasse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Potencia.ValorPotencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Combustivel.TipoCombustivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor.TipoCor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condicao.TipoCondicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdVeiculo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classe.TipoClasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Potencia.ValorPotencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor.TipoCor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condicao.TipoCondicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+    </tr>
+}
+
+</table>

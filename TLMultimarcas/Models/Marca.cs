@@ -14,7 +14,16 @@ namespace TLMultimarcas.Models
     
     public partial class Marca
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Marca()
+        {
+            this.Veiculo = new HashSet<Veiculo>();
+        }
+    
         public int IdMarca { get; set; }
         public string NomeMarca { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Veiculo> Veiculo { get; set; }
     }
 }

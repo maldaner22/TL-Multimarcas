@@ -29,6 +29,7 @@ namespace TLMultimarcas.Models
         public virtual Combustivel Combustivel { get; set; }
         public virtual Condicao Condicao { get; set; }
         public virtual Cor Cor { get; set; }
+        public virtual Marca Marca { get; set; }
         public virtual Modelo Modelo { get; set; }
         public virtual Potencia Potencia { get; set; }
     }

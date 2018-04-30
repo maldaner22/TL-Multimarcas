@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TLMultimarcasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TLMultimarcasModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Classe">
           <Key>
             <PropertyRef Name="IdClasse" />
@@ -155,6 +155,18 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Veiculo_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Veiculo_Modelo">
           <End Role="Modelo" Type="Self.Modelo" Multiplicity="1" />
           <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
@@ -179,7 +191,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TLMultimarcasModelStoreContainer">
+        <EntityContainer Name="TLMultimarcasModelsStoreContainer">
           <EntitySet Name="Classe" EntityType="Self.Classe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Combustivel" EntityType="Self.Combustivel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Condicao" EntityType="Self.Condicao" Schema="dbo" store:Type="Tables" />
@@ -220,6 +232,10 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             <End Role="Cor" EntitySet="Cor" />
             <End Role="Veiculo" EntitySet="Veiculo" />
           </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Marca" Association="Self.FK_Veiculo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
           <AssociationSet Name="FK_Veiculo_Modelo" Association="Self.FK_Veiculo_Modelo">
             <End Role="Modelo" EntitySet="Modelo" />
             <End Role="Veiculo" EntitySet="Veiculo" />
@@ -233,7 +249,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TLMultimarcasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TLMultimarcasModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Classe">
           <Key>
             <PropertyRef Name="IdClasse" />
@@ -272,6 +288,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
           </Key>
           <Property Name="IdMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomeMarca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK_Veiculo_Marca" FromRole="Marca" ToRole="Veiculo" />
         </EntityType>
         <EntityType Name="Modelo">
           <Key>
@@ -317,6 +334,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
           <NavigationProperty Name="Combustivel" Relationship="Self.FK_Veiculo_Combustivel" FromRole="Veiculo" ToRole="Combustivel" />
           <NavigationProperty Name="Condicao" Relationship="Self.FK_Veiculo_Condicao" FromRole="Veiculo" ToRole="Condicao" />
           <NavigationProperty Name="Cor" Relationship="Self.FK_Veiculo_Cor" FromRole="Veiculo" ToRole="Cor" />
+          <NavigationProperty Name="Marca" Relationship="Self.FK_Veiculo_Marca" FromRole="Veiculo" ToRole="Marca" />
           <NavigationProperty Name="Modelo" Relationship="Self.FK_Veiculo_Modelo" FromRole="Veiculo" ToRole="Modelo" />
           <NavigationProperty Name="Potencia" Relationship="Self.FK_Veiculo_Potencia" FromRole="Veiculo" ToRole="Potencia" />
         </EntityType>
@@ -394,6 +412,18 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Veiculo_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Veiculo">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Veiculo_Modelo">
           <End Role="Modelo" Type="Self.Modelo" Multiplicity="1" />
           <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="*" />
@@ -418,7 +448,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TLMultimarcasEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TLMultimarcasEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classe" EntityType="Self.Classe" />
           <EntitySet Name="Combustivel" EntityType="Self.Combustivel" />
           <EntitySet Name="Condicao" EntityType="Self.Condicao" />
@@ -445,6 +475,10 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             <End Role="Cor" EntitySet="Cor" />
             <End Role="Veiculo" EntitySet="Veiculo" />
           </AssociationSet>
+          <AssociationSet Name="FK_Veiculo_Marca" Association="Self.FK_Veiculo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Veiculo" EntitySet="Veiculo" />
+          </AssociationSet>
           <AssociationSet Name="FK_Veiculo_Modelo" Association="Self.FK_Veiculo_Modelo">
             <End Role="Modelo" EntitySet="Modelo" />
             <End Role="Veiculo" EntitySet="Veiculo" />
@@ -459,9 +493,9 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TLMultimarcasModelStoreContainer" CdmEntityContainer="TLMultimarcasEntities">
+        <EntityContainerMapping StorageEntityContainer="TLMultimarcasModelsStoreContainer" CdmEntityContainer="TLMultimarcasEntities3">
           <EntitySetMapping Name="Classe">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Classe">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Classe">
               <MappingFragment StoreEntitySet="Classe">
                 <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
                 <ScalarProperty Name="TipoClasse" ColumnName="TipoClasse" />
@@ -469,7 +503,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Combustivel">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Combustivel">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Combustivel">
               <MappingFragment StoreEntitySet="Combustivel">
                 <ScalarProperty Name="IdCombustivel" ColumnName="IdCombustivel" />
                 <ScalarProperty Name="TipoCombustivel" ColumnName="TipoCombustivel" />
@@ -477,7 +511,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Condicao">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Condicao">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Condicao">
               <MappingFragment StoreEntitySet="Condicao">
                 <ScalarProperty Name="IdCondicao" ColumnName="IdCondicao" />
                 <ScalarProperty Name="TipoCondicao" ColumnName="TipoCondicao" />
@@ -485,7 +519,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cor">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Cor">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Cor">
               <MappingFragment StoreEntitySet="Cor">
                 <ScalarProperty Name="IdCor" ColumnName="IdCor" />
                 <ScalarProperty Name="TipoCor" ColumnName="TipoCor" />
@@ -493,7 +527,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Marca">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Marca">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Marca">
               <MappingFragment StoreEntitySet="Marca">
                 <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
                 <ScalarProperty Name="NomeMarca" ColumnName="NomeMarca" />
@@ -501,7 +535,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modelo">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Modelo">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Modelo">
               <MappingFragment StoreEntitySet="Modelo">
                 <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
                 <ScalarProperty Name="NomeModelo" ColumnName="NomeModelo" />
@@ -509,7 +543,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Potencia">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Potencia">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Potencia">
               <MappingFragment StoreEntitySet="Potencia">
                 <ScalarProperty Name="IdPotencia" ColumnName="IdPotencia" />
                 <ScalarProperty Name="ValorPotencia" ColumnName="ValorPotencia" />
@@ -517,7 +551,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.sysdiagrams">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -528,7 +562,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Veiculo">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Veiculo">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Veiculo">
               <MappingFragment StoreEntitySet="Veiculo">
                 <ScalarProperty Name="IdVeiculo" ColumnName="IdVeiculo" />
                 <ScalarProperty Name="Placa" ColumnName="Placa" />
@@ -544,7 +578,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="TLMultimarcasModel.Usuario">
+            <EntityTypeMapping TypeName="TLMultimarcasModels.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="NomeFuncionario" ColumnName="NomeFuncionario" />
