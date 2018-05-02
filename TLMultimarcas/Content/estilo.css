@@ -34,3 +34,22 @@
     text-align: center;
     padding: 15px
 }
+
+.control-label {
+    font-size: 15px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.control-subtitle {
+    font-size: 20px;
+    color: white;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    font-weight: bold;
+}
