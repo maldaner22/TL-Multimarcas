@@ -37,13 +37,13 @@
 
 .control-label {
     font-size: 15px;
-    color: white;
+    color: black;
     margin-bottom: 2px;
 }
 
 .control-subtitle {
     font-size: 20px;
-    color: white;
+    color: black;
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -58,5 +58,13 @@ label {
     display: inline-block;
     margin: 5px 0;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
+}
+
+.invisible {
+    visibility:hidden;
+}
+
+.btnHome {
+    
 }
