@@ -1,11 +1,13 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+body {
     background-color: #fff;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nav-link {
     text-transform: uppercase;
     font: 15px;
-    font-family: 'toyota_displayregular', Arial, Helvetica, sans-serif;
     color: brown;
     margin-top: 20px;
 }
@@ -13,19 +15,26 @@
 .city {
     color: #fff;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .phone {
     color: #fff;
     font-size: 25px;
-    font-weight:500;
+    font-weight: 700;
 }
 
-.address{
+.address {
     color: #fff;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
+}
+
+.schedule {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 15px;
 }
 
 .footer {
@@ -58,14 +67,14 @@ label {
     display: inline-block;
     margin: 5px 0;
     border-radius: 4px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .invisible {
     font-size: 15px;
     color: black;
     margin-bottom: 2px;
-    visibility:hidden;
+    visibility: hidden;
 }
 
 .btnHome {
