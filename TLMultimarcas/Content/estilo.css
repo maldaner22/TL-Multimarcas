@@ -53,3 +53,10 @@ label {
     max-width: 100%;
     font-weight: bold;
 }
+
+.fore-control {
+    display: inline-block;
+    margin: 5px 0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
