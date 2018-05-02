@@ -12,8 +12,6 @@
     </div>
     <div class="col-lg-9"></div>
 </div>
-
-
 <div class="row">
     <div class="col-lg-3" style="text-align:center">
         <div class="row">
@@ -76,7 +74,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <label class="invisible">
-                    Invisivel
+                    Botão:
                 </label>
             </div>
         </div>
@@ -88,7 +86,29 @@
         </div>
     </div>
     </div>
-
 </div>
 
+<div class="row">
+    <div class="col-lg-12">
+        <img src="~/Images/Chevrolet/CruzeSport6.png" />
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-lg-12">
+        <img src="~/Images/Chevrolet/Tracker.png" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <img src="~/Images/Chevrolet/Trailblazer.png" />
+    </div>
+</div>
+
+<script>
+    $("#btnFooter").click(function () {
+        console.log("cliclou");
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    });
+</script>
