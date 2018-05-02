@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TLMultimarcas.Models.Veiculo>
+﻿@model IEnumerable<TLMultimarcas.Models.Marca>
 
 @{
     ViewBag.Title = "Home Page";
@@ -21,7 +21,7 @@
                     @foreach (var item in Model)
                     {
 		                <option>
-		                    @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
+		                    @Html.DisplayFor(modelItem => item.NomeMarca)
 		                </option>
         			}
                 </select>

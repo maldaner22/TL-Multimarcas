@@ -13,8 +13,8 @@ namespace TLMultimarcas.Controllers
 
         public ActionResult Index()
         {
-            var cars = db.Veiculo;
-            return View(cars);
+            var brands = db.Marca;
+            return View(brands);
         }
 
     }
