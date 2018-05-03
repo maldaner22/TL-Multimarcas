@@ -13,10 +13,10 @@ namespace TLMultimarcas.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TLMultimarcasEntities3 : DbContext
+    public partial class TLMultimarcasEntities : DbContext
     {
-        public TLMultimarcasEntities3()
-            : base("name=TLMultimarcasEntities3")
+        public TLMultimarcasEntities()
+            : base("name=TLMultimarcasEntities")
         {
         }
     

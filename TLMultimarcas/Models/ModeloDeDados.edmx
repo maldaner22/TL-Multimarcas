@@ -448,7 +448,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TLMultimarcasEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TLMultimarcasEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classe" EntityType="Self.Classe" />
           <EntitySet Name="Combustivel" EntityType="Self.Combustivel" />
           <EntitySet Name="Condicao" EntityType="Self.Condicao" />
@@ -493,7 +493,7 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TLMultimarcasModelsStoreContainer" CdmEntityContainer="TLMultimarcasEntities3">
+        <EntityContainerMapping StorageEntityContainer="TLMultimarcasModelsStoreContainer" CdmEntityContainer="TLMultimarcasEntities">
           <EntitySetMapping Name="Classe">
             <EntityTypeMapping TypeName="TLMultimarcasModels.Classe">
               <MappingFragment StoreEntitySet="Classe">

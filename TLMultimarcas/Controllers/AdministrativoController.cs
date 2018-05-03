@@ -9,7 +9,7 @@ namespace TLMultimarcas.Controllers
 {
     public class AdministrativoController : Controller
     {
-        private TLMultimarcasEntities3 db = new TLMultimarcasEntities3();
+        private TLMultimarcasEntities db = new TLMultimarcasEntities();
 
         public ActionResult Index()
         {

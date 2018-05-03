@@ -9,7 +9,7 @@ namespace TLMultimarcas.Controllers
 {
     public class HomeController : Controller
     {
-        private TLMultimarcasEntities3 db = new TLMultimarcasEntities3();
+        private TLMultimarcasEntities db = new TLMultimarcasEntities();
 
         public ActionResult Index()
         {
@@ -20,9 +20,9 @@ namespace TLMultimarcas.Controllers
         public ActionResult Chevrolet()
         {
             var chevrolet = from a in db.Veiculo
-                        orderby a.IdMarca
-                        where a.IdMarca == 3
-                        select a;
+                            orderby a.IdMarca
+                            where a.IdMarca == 3
+                            select a;
 
             return View(chevrolet);
         }
