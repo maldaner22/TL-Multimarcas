@@ -284,7 +284,6 @@
     <Content Include="Images\Hyundai\ix35.png" />
     <Content Include="Images\Hyundai\SantaFe.png" />
     <Content Include="Images\Hyundai\Tucson.png" />
-    <Content Include="Images\Icons\searchImage.png" />
     <Content Include="Images\LogosMarcas\ChevroletLogo.png" />
     <Content Include="Images\LogosMarcas\CitroenLogo.png" />
     <Content Include="Images\LogosMarcas\FiatLogo.png" />
