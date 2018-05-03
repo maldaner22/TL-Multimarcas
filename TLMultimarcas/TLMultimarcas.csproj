@@ -220,6 +220,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Cabeçalho\iconeLogo2-TL.ico" />
     <Content Include="Images\Cabeçalho\logo2-TL.png" />
     <Content Include="Images\Chevrolet\CamaroConversivel.png" />
     <Content Include="Images\Chevrolet\CamaroCupe.png" />
