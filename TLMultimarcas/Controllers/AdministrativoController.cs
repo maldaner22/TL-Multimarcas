@@ -7,7 +7,7 @@ using TLMultimarcas.Models;
 
 namespace TLMultimarcas.Controllers
 {
-    public class TesteController : Controller
+    public class AdministrativoController : Controller
     {
         private TLMultimarcasEntities3 db = new TLMultimarcasEntities3();
 
