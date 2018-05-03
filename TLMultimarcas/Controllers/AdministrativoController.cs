@@ -17,5 +17,16 @@ namespace TLMultimarcas.Controllers
             return View(cars);
         }
 
+        public ActionResult Adicionar()
+        {
+            ViewBag.IdModelo = new SelectList(db.Modelo, "IdModelo", "NomeModelo");
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NomeMarca");
+            ViewBag.IdClasse = new SelectList(db.Classe, "IdClasse", "TipoClasse");
+            ViewBag.IdPotencia = new SelectList(db.Potencia, "IdPotencia", "ValorPotencia");
+            ViewBag.IdCombustivel = new SelectList(db.Combustivel, "IdCombustivel", "TipoCombustivel");
+            ViewBag.IdCor = new SelectList(db.Cor, "IdCor", "TipoCor");
+            ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao");
+            return View();
+        }
     }
 }
