@@ -30,9 +30,10 @@
                     <option value="">Selecione</option>
                     @foreach (var item in Model)
                     {
-                        <option>
+                        <option value="@Html.DisplayFor(modelItem => item.IdMarca)">
                             @Html.DisplayFor(modelItem => item.NomeMarca)
                         </option>
+
                     }
                 </select>
             </div>

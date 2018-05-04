@@ -13,12 +13,8 @@ namespace TLMultimarcas.Controllers
 
         public ActionResult Index()
         {
-            //var brands = db.Marca;
-            //return View(brands);
-            var marcasArray = db.Marca.Select(x => new Marca
-            {
-                
-            }).ToArray();
+            var brands = db.Marca;
+            return View(brands);
         }
 
         public ActionResult Chevrolet()
