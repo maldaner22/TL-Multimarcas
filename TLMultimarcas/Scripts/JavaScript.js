@@ -1,4 +1,10 @@
-﻿function mountURL(itemSelecionado) {
+﻿function goToFooter() {
+    $("#btnFooter").click(function () {
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    });
+}
+
+function mountURL(itemSelecionado) {
     var apiURL = "http://localhost:62960/";
     var apiInf = "Api/Modelo/";
     var param = itemSelecionado;
@@ -18,6 +24,7 @@ function checkSelectMarca() {
 
 function actions() {
     checkSelectMarca();
+    goToFooter();
 }
     
 $(document).ready(function () {
