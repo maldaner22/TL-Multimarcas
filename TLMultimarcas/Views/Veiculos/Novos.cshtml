@@ -6,6 +6,28 @@
 
 <h2>Novos</h2>
 
+@*<div class="card-deck">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <img class="card-img-top" src="@String.Format("/Images/{0}/{1}.png", item.Marca.NomeMarca, item.Modelo.NomeModelo)" alt="Card image cap" />
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.Modelo.NomeModelo)</h3>
+                </div>
+            </div>
+        }
+    </div>*@
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-12" style="text-align:center">
+            <img src="@String.Format("/Images/{0}/{1}.png", item.Marca.NomeMarca, item.Modelo.NomeModelo)" width="265" height="165" />
+            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Modelo.NomeModelo)</h3>
+        </div>
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -38,37 +60,38 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Placa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Classe.TipoClasse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Potencia.ValorPotencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cor.TipoCor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Condicao.TipoCondicao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classe.TipoClasse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Potencia.ValorPotencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor.TipoCor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condicao.TipoCondicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+        </tr>
+    }
 
 </table>
 

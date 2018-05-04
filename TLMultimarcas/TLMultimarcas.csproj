@@ -236,11 +236,11 @@
     <Content Include="Images\Chevrolet\Spin.png" />
     <Content Include="Images\Chevrolet\Tracker.png" />
     <Content Include="Images\Chevrolet\Trailblazer.png" />
-    <Content Include="Images\Citroen\Aircross.png" />
-    <Content Include="Images\Citroen\C3.png" />
-    <Content Include="Images\Citroen\C4Lounge.png" />
-    <Content Include="Images\Citroen\C4PICASSO.png" />
-    <Content Include="Images\Citroen\GRANDC4PICASSO.png" />
+    <Content Include="Images\Citroën\Aircross.png" />
+    <Content Include="Images\Citroën\C3.png" />
+    <Content Include="Images\Citroën\C4Lounge.png" />
+    <Content Include="Images\Citroën\C4PICASSO.png" />
+    <Content Include="Images\Citroën\GRANDC4PICASSO.png" />
     <Content Include="Images\Fiat\Argo.png" />
     <Content Include="Images\Fiat\Cronos.png" />
     <Content Include="Images\Fiat\Doblô.png" />
@@ -505,6 +505,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
