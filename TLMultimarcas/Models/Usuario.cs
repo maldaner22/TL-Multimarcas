@@ -11,12 +11,19 @@ namespace TLMultimarcas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuario
     {
         public int IdUsuario { get; set; }
         public string NomeFuncionario { get; set; }
+        [DisplayName("Usuário")]
+        [Required(ErrorMessage = "É necessário informar o usuário.")]
         public string LoginFuncionario { get; set; }
+        [DisplayName("Senha")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "É necessário informar a senha.")]
         public string SenhaFuncionario { get; set; }
         public string EmailFuncionario { get; set; }
         public int AdicionarFuncionario { get; set; }
@@ -25,5 +32,7 @@ namespace TLMultimarcas.Models
         public int EditarVeiculo { get; set; }
         public int ExcluirFuncionario { get; set; }
         public int ExcluirVeiculo { get; set; }
+
+        public string LoginErrorMessage { get; set; }
     }
 }
