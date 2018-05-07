@@ -28,5 +28,24 @@ namespace TLMultimarcas.Controllers
             ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao");
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Adicionar(Veiculo veiculo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Veiculo.Add(veiculo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.IdModelo = new SelectList(db.Modelo, "IdModelo","NomeModelo", veiculo.Modelo);
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NomeMarca", veiculo.Marca);
+            ViewBag.IdClasse = new SelectList(db.Classe, "IdClasse", "TipoClasse", veiculo.Classe);
+            ViewBag.IdPotencia = new SelectList(db.Potencia, "IdPotencia", "ValorPotencia", veiculo.Potencia);
+            ViewBag.IdCombustivel = new SelectList(db.Combustivel, "IdCombustivel", "TipoCombustivel", veiculo.Combustivel);
+            ViewBag.IdCor = new SelectList(db.Cor, "IdCor", "TipoCor", veiculo.Cor);
+            ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao", veiculo.Condicao);
+            return View(veiculo);
+        }
     }
 }
