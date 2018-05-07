@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -45,6 +46,38 @@ namespace TLMultimarcas.Controllers
             ViewBag.IdCombustivel = new SelectList(db.Combustivel, "IdCombustivel", "TipoCombustivel", veiculo.Combustivel);
             ViewBag.IdCor = new SelectList(db.Cor, "IdCor", "TipoCor", veiculo.Cor);
             ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao", veiculo.Condicao);
+            return View(veiculo);
+        }
+
+        public ActionResult Editar(long id)
+        {
+            Veiculo veiculo = db.Veiculo.Find(id);
+            ViewBag.IdModelo = new SelectList(db.Modelo, "IdModelo", "NomeModelo", veiculo.IdModelo);
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NomeMarca", veiculo.IdMarca);
+            ViewBag.IdClasse = new SelectList(db.Classe, "IdClasse", "TipoClasse", veiculo.IdClasse);
+            ViewBag.IdPotencia = new SelectList(db.Potencia, "IdPotencia", "ValorPotencia", veiculo.IdPotencia);
+            ViewBag.IdCombustivel = new SelectList(db.Combustivel, "IdCombustivel", "TipoCombustivel", veiculo.IdCombustivel);
+            ViewBag.IdCor = new SelectList(db.Cor, "IdCor", "TipoCor", veiculo.IdCor);
+            ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao", veiculo.IdCondicao);
+            return View(veiculo);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Veiculo veiculo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(veiculo).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.IdModelo = new SelectList(db.Modelo, "IdModelo", "NomeModelo", veiculo.IdModelo);
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NomeMarca", veiculo.IdMarca);
+            ViewBag.IdClasse = new SelectList(db.Classe, "IdClasse", "TipoClasse", veiculo.IdClasse);
+            ViewBag.IdPotencia = new SelectList(db.Potencia, "IdPotencia", "ValorPotencia", veiculo.IdPotencia);
+            ViewBag.IdCombustivel = new SelectList(db.Combustivel, "IdCombustivel", "TipoCombustivel", veiculo.IdCombustivel);
+            ViewBag.IdCor = new SelectList(db.Cor, "IdCor", "TipoCor", veiculo.IdCor);
+            ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao", veiculo.IdCondicao);
             return View(veiculo);
         }
     }
