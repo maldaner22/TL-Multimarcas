@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-    if (Session["IdUsuario"] == null)
-    {
-        Response.Redirect("~/Login/Index");
-    }
+    //if (Session["IdUsuario"] == null)
+    //{
+      //  Response.Redirect("~/Login/Index");
+    //}
 }
 
 <h2>Index</h2>
@@ -77,9 +77,39 @@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Editar", new { id = item.IdVeiculo }) |
-                @Html.ActionLink("Deletar", "Deletar", new { id = item.IdVeiculo })
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.IdVeiculo } ,new { @class = "excluir" })
             </td>
         </tr>
     }
 
 </table>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var linhaAtual;
+            $(".excluir").on("click", function () {
+                if (confirm("Confirma a exclusão do carro?")) {
+                    var urlExclusao = $(this).attr("href");
+                    linhaAtual = $(this).closest("tr");
+
+                    $.ajax({
+                        url: urlExclusao,
+                        type: "POST"
+                    }).done(function (excluiu) {
+                        if (excluiu) {
+                            linhaAtual.remove();
+                        } else {
+                            alert("Ocorreu algum problema na exclusão do carro :(");
+                        }
+                    }).fail(function () {
+                        alert("Ocorreu algum erro :(");
+                    });
+                }
+
+                return false;
+            });
+        });
+
+    </script>
+}

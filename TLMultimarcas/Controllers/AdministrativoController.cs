@@ -80,5 +80,21 @@ namespace TLMultimarcas.Controllers
             ViewBag.IdCondicao = new SelectList(db.Condicao, "IdCondicao", "TipoCondicao", veiculo.IdCondicao);
             return View(veiculo);
         }
+
+        [HttpPost]
+        public string Excluir(long id)
+        {
+            try
+            {
+                Veiculo veiculo = db.Veiculo.Find(id);
+                db.Veiculo.Remove(veiculo);
+                db.SaveChanges();
+                return Boolean.TrueString;
+            }
+            catch
+            {
+                return Boolean.FalseString;
+            }
+        }
     }
 }
