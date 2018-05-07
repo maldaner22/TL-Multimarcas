@@ -12,6 +12,13 @@ body {
     margin-top: 20px;
 }
 
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+
 .city {
     color: #fff;
     font-size: 30px;
