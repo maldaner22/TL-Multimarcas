@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-    //if (Session["IdUsuario"] == null)
-    //{
-      //  Response.Redirect("~/Login/Index");
-    //}
+    if (Session["IdUsuario"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>Index</h2>
