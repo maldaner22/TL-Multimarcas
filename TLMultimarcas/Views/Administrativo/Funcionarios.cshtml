@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NomeFuncionario)
+            Nome do Funcionário
         </th>
         @*<th>
                 @Html.DisplayNameFor(model => model.LoginFuncionario)
@@ -24,22 +24,22 @@
                 @Html.DisplayNameFor(model => model.EmailFuncionario)
             </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.AdicionarVeiculo)
+            Adicionar Veículo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EditarVeiculo)
+           Editar Veículo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExcluirVeiculo)
+            Excluir Veículo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AdicionarFuncionario)
+            Adicionar Funcionário
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EditarFuncionario)
+            Editar Funcionário
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExcluirFuncionario)
+            Excluir Funcionário
         </th>
     </tr>
 
@@ -77,8 +77,8 @@
                 @Html.DisplayFor(model => item.ExcluirFuncionario)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }
