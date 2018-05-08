@@ -12,11 +12,17 @@ body {
     margin-top: 20px;
 }
 
-.card-group {
+.card-deck {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: auto;
-    grid-gap: 1rem;
+    grid-row-gap: 25px;
+}
+
+.card {
+    border: 1px solid #C71F3F;
+    border-radius: 4px;
+    padding: 10px;
 }
 
 .city {
@@ -94,4 +100,3 @@ label {
     border: none;
     color: white;
 }
-
