@@ -12,7 +12,21 @@
         <div class="card">
             <img class="card-img-top" src="@String.Format("/Images/{0}/{1}.png", item.Marca.NomeMarca, item.Modelo.NomeModelo)" alt="Card image cap" />
             <div class="card-body">
-                <h3 class="card-title">@Html.DisplayFor(modelItem => item.Modelo.NomeModelo)</h3>
+                <div class="row">
+                    <div class="col-12 card-car">
+                        @Html.DisplayFor(modelItem => item.Marca.NomeMarca) @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-informations">
+                        @Html.DisplayFor(modelItem => item.Potencia.ValorPotencia).ToHtmlString().Replace(",",".")  - @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-informations">
+                        R$ @Html.DisplayFor(modelItem => item.Valor)
+                    </div>
+                </div>
             </div>
         </div>
     }
