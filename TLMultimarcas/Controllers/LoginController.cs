@@ -29,6 +29,21 @@ namespace TLMultimarcas.Controllers
                 else
                 {
                     Session["IdUsuario"] = userDetails.IdUsuario;
+                    Session["AdicionarVeiculo"] = userDetails.AdicionarVeiculo;
+                    Session["EditarVeiculo"] = userDetails.EditarVeiculo;
+                    Session["ExcluirVeiculo"] = userDetails.ExcluirVeiculo;
+                    if (Session["AdicionarVeiculo"].ToString() == "0")
+                    {
+                        Session["AdicionarVeiculo"] = null;
+                    }
+                    if (Session["EditarVeiculo"].ToString() == "0")
+                    {
+                        Session["EditarVeiculo"] = null;
+                    }
+                    if (Session["ExcluirVeiculo"].ToString() == "0")
+                    {
+                        Session["ExcluirVeiculo"] = null;
+                    }
                     return RedirectToAction("Index", "Administrativo");
                 }
             }
