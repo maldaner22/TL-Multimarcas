@@ -1,0 +1,91 @@
+﻿@model IEnumerable<TLMultimarcas.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeFuncionario)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.LoginFuncionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenhaFuncionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailFuncionario)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AdicionarVeiculo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditarVeiculo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExcluirVeiculo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdicionarFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditarFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExcluirFuncionario)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NomeFuncionario)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(model => item.LoginFuncionario)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.SenhaFuncionario)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.EmailFuncionario)
+                </td>*@
+            <td>
+                @Html.DisplayFor(model => item.AdicionarVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EditarVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ExcluirVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AdicionarFuncionario)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EditarFuncionario)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ExcluirFuncionario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

@@ -96,5 +96,11 @@ namespace TLMultimarcas.Controllers
                 return Boolean.FalseString;
             }
         }
+
+        public ActionResult Funcionarios()
+        {
+            var users = db.Usuario;
+            return View(users);
+        }
     }
 }
