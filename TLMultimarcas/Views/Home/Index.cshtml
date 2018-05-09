@@ -26,7 +26,8 @@
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-8">
-                <select class="fore-control" id="selectMarca">
+                @Html.DropDownList("selectMarca", ViewBag.brandsname as SelectList, "Selecione", new { @class = "fore-control"})
+                @*<select class="fore-control" id="selectMarca">
                     <option value="">Selecione</option>
                     @foreach (var item in Model)
                     {
@@ -35,7 +36,7 @@
                         </option>
 
                     }
-                </select>
+                </select>*@
             </div>
         </div>
     </div>
