@@ -21,5 +21,21 @@ namespace TLMultimarcas.Controllers
             ViewBag.brandsname = list;
             return View();
         }
+
+        public ActionResult Data()
+        {
+            string str = "data source=.;initial catalog=TLMultimarcas;integrated security=True";
+            SqlConnection con = new SqlConnection(str);
+            string query = "SELECT IdMarca, Mo.NomeModelo FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo";
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader rdr = cmd.ExecuteReader();
+            List<SelectListItem> li = new List<SelectListItem>();
+            while (rdr.Read())
+            {
+                li.Add(new SelectListItem { Text = rdr[1].ToString(), Value = rdr[0].ToString() });
+            }
+            return Json(li, JsonRequestBehavior.AllowGet);
+        }
     }
 }

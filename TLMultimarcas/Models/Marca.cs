@@ -11,7 +11,8 @@ namespace TLMultimarcas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Marca
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,6 +21,7 @@ namespace TLMultimarcas.Models
             this.Veiculo = new HashSet<Veiculo>();
         }
     
+        public List<SelectListItem> Brand { get; set; }
         public int IdMarca { get; set; }
         public string NomeMarca { get; set; }
     

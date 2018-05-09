@@ -4,12 +4,21 @@
     });
 }
 
-function mountURL(itemSelecionado) {
-    var apiURL = "http://localhost:62960/";
-    var apiInf = "Api/Modelo/";
-    var param = itemSelecionado;
-    var reqURL = (apiURL + apiInf + param);
-    console.log(reqURL);
+function setValues(id, data) {
+    var select = document.getElementById('selectModelo');
+    select.options.length = 0;
+    var defaulOpt = document.createElement('option');
+    defaulOpt.value = null;
+    defaulOpt.innerHTML = "Selecione";
+    select.appendChild(defaulOpt);
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].Value == id) {
+            var opt = document.createElement('option');
+            opt.value = data[i].Value;
+            opt.innerHTML = data[i].Text;
+            select.appendChild(opt);
+        }
+    }
 }
 
 function checkSelectMarca() {
@@ -17,7 +26,19 @@ function checkSelectMarca() {
         var e = document.getElementById("selectMarca");
         var itemSelecionado = e.options[e.selectedIndex].value;
         if (itemSelecionado != '') {
-            mountURL(itemSelecionado);
+            $.ajax(
+                {
+                    type: 'GET',
+                    url: "/Home/Data",
+                    data: { get_param: 'value' },
+                    dataType: 'json',
+                    success: function (result) {
+                        setValues(itemSelecionado, result);
+                    },
+                    error: function () {
+                        alert("No data received");
+                    }
+                });
         }
     });
 }
@@ -26,7 +47,7 @@ function actions() {
     checkSelectMarca();
     goToFooter();
 }
-    
+
 $(document).ready(function () {
     actions();
 });
