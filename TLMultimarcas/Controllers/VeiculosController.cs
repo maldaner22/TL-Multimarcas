@@ -111,5 +111,15 @@ namespace TLMultimarcas.Controllers
             return View(marca);
         }
 
+        public ActionResult Renault()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 10
+                        select a;
+
+            return View(marca);
+        }
+
     }
 }
