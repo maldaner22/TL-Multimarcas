@@ -23,20 +23,27 @@ namespace TLMultimarcas.Controllers
             return View();
         }
 
+        public class Select
+        {
+            public string IdMarca;
+            public string IdModelo;
+            public string NomeModelo;
+        }
+
         public ActionResult Data()
         {
             string str = "data source=.;initial catalog=TLMultimarcas;integrated security=True";
             SqlConnection con = new SqlConnection(str);
-            string query = "SELECT IdMarca, Mo.NomeModelo FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo";
+            string query = "SELECT IdMarca, Mo.IdModelo, Mo.NomeModelo FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo";
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
             SqlDataReader rdr = cmd.ExecuteReader();
-            List<SelectListItem> li = new List<SelectListItem>();
+            var list = new List<Select>();
             while (rdr.Read())
             {
-                li.Add(new SelectListItem { Text = rdr[1].ToString(), Value = rdr[0].ToString() });
+                list.Add(new Select { IdMarca = rdr[0].ToString(), IdModelo = rdr[1].ToString(), NomeModelo = rdr[2].ToString() });
             }
-            return Json(li, JsonRequestBehavior.AllowGet);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -10,18 +10,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
     <style>
-        /*.login {
-            position: absolute;
-            left: 40%;
-            top: 40%;
-            border: 1px solid #ccc;
-            padding: 10px 10px;
-        }
-
-        .field-validation-error {
-            color: red;
-        }*/
-
         body {
             background: #0f0c29; /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29); /* Chrome 10-25, Safari 5.1-6 */
@@ -98,6 +86,10 @@
                 .login input[type="submit"]:focus {
                     border-color: #181151;
                 }
+
+        .field-validation-error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -119,9 +111,9 @@
                     @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "login input" } })
                     @Html.ValidationMessageFor(model => model.SenhaFuncionario)
                 </div>
-                @Html.DisplayFor(model => model.LoginErrorMessage)
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
 
-                <input type="submit" name="name" value="Entrar"/>
+                <input type="submit" name="name" value="Entrar" />
             </div>
         </div>
     }
