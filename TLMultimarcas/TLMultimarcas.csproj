@@ -509,6 +509,7 @@
     <Content Include="Views\Administrativo\AdicionarFuncionario.cshtml" />
     <Content Include="Views\Veiculos\Chevrolet.cshtml" />
     <Content Include="Views\Veiculos\Citroen.cshtml" />
+    <Content Include="Views\Veiculos\Fiat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
