@@ -40,5 +40,86 @@ namespace TLMultimarcas.Controllers
 
             return View(condition);
         }
+
+        public ActionResult Chevrolet()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 3
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Citroen()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 4
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Fiat()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 5
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Ford()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 6
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Honda()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 7
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Hyundai()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 8
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Peugeot()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 9
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Renault()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 10
+                        select a;
+
+            return View(marca);
+        }
+
     }
 }
