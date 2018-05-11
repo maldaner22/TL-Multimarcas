@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TLMultimarcas.Models.Veiculo>
+
+@{
+    ViewBag.Title = "Volkswagen";
+}
+
+<h2>Volkswagen</h2>
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img class="card-img-top" src="@String.Format("/Images/{0}/{1}.png", item.Marca.NomeMarca, item.Modelo.NomeModelo)" alt="Card image cap" />
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 card-car">
+                        @Html.DisplayFor(modelItem => item.Marca.NomeMarca) @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-informations">
+                        @Html.DisplayFor(modelItem => item.Potencia.ValorPotencia).ToHtmlString().Replace(",", ".")  - @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-informations">
+                        R$ @Html.DisplayFor(modelItem => item.Valor)
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classe.TipoClasse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Combustivel.TipoCombustivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condicao.TipoCondicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor.TipoCor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca.NomeMarca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo.NomeModelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Potencia.IdPotencia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classe.TipoClasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Combustivel.TipoCombustivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condicao.TipoCondicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor.TipoCor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Potencia.IdPotencia)
+        </td>
+    </tr>
+}
+
+</table>
