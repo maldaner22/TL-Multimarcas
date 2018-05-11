@@ -153,6 +153,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministrativoController.cs" />
+    <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
@@ -505,8 +506,6 @@
     <Content Include="Views\Administrativo\Adicionar.cshtml" />
     <Content Include="Views\Administrativo\Editar.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Administrativo\Funcionarios.cshtml" />
-    <Content Include="Views\Administrativo\AdicionarFuncionario.cshtml" />
     <Content Include="Views\Veiculos\Chevrolet.cshtml" />
     <Content Include="Views\Veiculos\Citroen.cshtml" />
     <Content Include="Views\Veiculos\Fiat.cshtml" />
@@ -517,6 +516,8 @@
     <Content Include="Views\Veiculos\Renault.cshtml" />
     <Content Include="Views\Veiculos\Toyota.cshtml" />
     <Content Include="Views\Veiculos\Volkswagen.cshtml" />
+    <Content Include="Views\Funcionarios\Index.cshtml" />
+    <Content Include="Views\Funcionarios\Adicionar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -201,20 +201,8 @@ warning 6002: The table/view 'TLMultimarcas.dbo.Usuario' does not have a primary
           <EntitySet Name="Potencia" EntityType="Self.Potencia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Veiculo" EntityType="Self.Veiculo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Usuario].[IdUsuario] AS [IdUsuario], 
-    [Usuario].[NomeFuncionario] AS [NomeFuncionario], 
-    [Usuario].[LoginFuncionario] AS [LoginFuncionario], 
-    [Usuario].[SenhaFuncionario] AS [SenhaFuncionario], 
-    [Usuario].[EmailFuncionario] AS [EmailFuncionario], 
-    [Usuario].[AdicionarFuncionario] AS [AdicionarFuncionario], 
-    [Usuario].[AdicionarVeiculo] AS [AdicionarVeiculo], 
-    [Usuario].[EditarFuncionario] AS [EditarFuncionario], 
-    [Usuario].[EditarVeiculo] AS [EditarVeiculo], 
-    [Usuario].[ExcluirFuncionario] AS [ExcluirFuncionario], 
-    [Usuario].[ExcluirVeiculo] AS [ExcluirVeiculo]
-    FROM [dbo].[Usuario] AS [Usuario]</DefiningQuery>
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" Schema="dbo">
+
           </EntitySet>
           <AssociationSet Name="FK_Veiculo_Classe" Association="Self.FK_Veiculo_Classe">
             <End Role="Classe" EntitySet="Classe" />
