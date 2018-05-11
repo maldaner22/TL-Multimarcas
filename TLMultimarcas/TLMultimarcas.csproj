@@ -507,6 +507,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Administrativo\Funcionarios.cshtml" />
     <Content Include="Views\Administrativo\AdicionarFuncionario.cshtml" />
+    <Content Include="Views\Veiculos\Chevrolet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

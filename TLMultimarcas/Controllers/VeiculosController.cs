@@ -40,5 +40,15 @@ namespace TLMultimarcas.Controllers
 
             return View(condition);
         }
+
+        public ActionResult Chevrolet()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 3
+                        select a;
+
+            return View(marca);
+        }
     }
 }

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<TLMultimarcas.Models.Usuario>
+
+@{
+    ViewBag.Title = "Funcionarios";
+}
+
+<h2>Funcionarios</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "AdicionarFuncionario")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome do Funcionário
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.LoginFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenhaFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailFuncionario)
+        </th>*@
+        <th>
+            Adicionar Veículo
+        </th>
+        <th>
+            Editar Veículo
+        </th>
+        <th>
+            Excluir Veículo
+        </th>
+        <th>
+            Adicionar Funcionário
+        </th>
+        <th>
+            Editar Funcionário
+        </th>
+        <th>
+            Excluir Funcionário
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.NomeFuncionario)
+        </td>
+        @*<td>
+            @Html.DisplayFor(model => item.LoginFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.SenhaFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.EmailFuncionario)
+        </td>*@
+        <td>
+            @Html.DisplayFor(model => item.AdicionarVeiculo)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.EditarVeiculo)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ExcluirVeiculo)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.AdicionarFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.EditarFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ExcluirFuncionario)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
