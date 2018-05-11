@@ -91,5 +91,15 @@ namespace TLMultimarcas.Controllers
             return View(marca);
         }
 
+        public ActionResult Hyundai()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 8
+                        select a;
+
+            return View(marca);
+        }
+
     }
 }
