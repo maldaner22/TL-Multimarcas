@@ -21,7 +21,6 @@ namespace TLMultimarcas.Models
             this.Veiculo = new HashSet<Veiculo>();
         }
     
-        public List<SelectListItem> Brand { get; set; }
         public int IdMarca { get; set; }
         public string NomeMarca { get; set; }
     

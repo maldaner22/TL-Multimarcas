@@ -5,6 +5,7 @@
 }
 
 function setValues(id, data) {
+    console.log(data);
     var select = document.getElementById('selectModelo');
     select.options.length = 0;
     var defaulOpt = document.createElement('option');
@@ -21,24 +22,30 @@ function setValues(id, data) {
     }
 }
 
+function ajax(url, cb) {
+    $.ajax(
+        {
+            type: 'GET',
+            url: "/Home/Data",
+            data: { get_param: 'value' },
+            dataType: 'json',
+            success: function (result) {
+                cb(result);
+            },
+            error: function () {
+                alert("No data received");
+            }
+        });
+}
+
 function checkSelectMarca() {
     $('#selectMarca').change(function () {
         var e = document.getElementById("selectMarca");
         var itemSelecionado = e.options[e.selectedIndex].value;
         if (itemSelecionado != '') {
-            $.ajax(
-                {
-                    type: 'GET',
-                    url: "/Home/Data",
-                    data: { get_param: 'value' },
-                    dataType: 'json',
-                    success: function (result) {
-                        setValues(itemSelecionado, result);
-                    },
-                    error: function () {
-                        alert("No data received");
-                    }
-                });
+            ajax("Home/Index", function (result) {
+                setValues(itemSelecionado, result);
+            });   
         }
     });
 }
