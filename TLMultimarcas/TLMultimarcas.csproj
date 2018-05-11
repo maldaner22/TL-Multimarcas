@@ -513,6 +513,7 @@
     <Content Include="Views\Veiculos\Ford.cshtml" />
     <Content Include="Views\Veiculos\Honda.cshtml" />
     <Content Include="Views\Veiculos\Hyundai.cshtml" />
+    <Content Include="Views\Veiculos\Peugeot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

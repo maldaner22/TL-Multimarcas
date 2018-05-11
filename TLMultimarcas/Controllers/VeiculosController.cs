@@ -101,5 +101,15 @@ namespace TLMultimarcas.Controllers
             return View(marca);
         }
 
+        public ActionResult Peugeot()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 9
+                        select a;
+
+            return View(marca);
+        }
+
     }
 }
