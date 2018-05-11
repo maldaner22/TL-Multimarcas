@@ -121,5 +121,25 @@ namespace TLMultimarcas.Controllers
             return View(marca);
         }
 
+        public ActionResult Toyota()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 11
+                        select a;
+
+            return View(marca);
+        }
+
+        public ActionResult Volkswagen()
+        {
+            var marca = from a in db.Veiculo
+                        orderby a.IdMarca
+                        where a.IdMarca == 12
+                        select a;
+
+            return View(marca);
+        }
+
     }
 }
