@@ -5,7 +5,39 @@ function goToFooter() {
 }
 
 function search() {
-    console.log(veiculos);
+    var url = "/Veiculos/Busca/";
+    var IdMarca = $('#selectMarca').val();
+    var IdModelo = $('#selectModelo').val();
+    var Valor = $('#selectValor').val();
+    var Veiculo = new Object();
+    Veiculo.Marca = null;
+    Veiculo.Modelo = null;
+    Veiculo.Preco = null;
+    if (IdMarca != "") {
+        Veiculo.Marca = IdMarca;
+        //url = url + IdMarca;
+        if (IdModelo != "null") {
+            Veiculo.Modelo = IdModelo;
+            //url = url + "/" + IdModelo;
+        }
+    }
+    if (Valor != "null") {
+        Veiculo.Preco = Valor;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ idMa: Veiculo.Marca, idMo: Veiculo.Modelo, Val: Veiculo.Preco, dados: Veiculo }),
+        success: function (data) {
+            console.log(data);
+        },
+        failure: function (errMsg) {
+            alert("I'm AJAX and I don't like to work");
+        }
+    });
 }
 
 function setValues(id) {
@@ -28,8 +60,8 @@ function setValues(id) {
 function ajax(url, cb) {
     $.ajax(
         {
-            type: 'GET',
-            url: "/Home/Data",
+            type: 'POST',
+            url: url,
             data: { get_param: 'value' },
             dataType: 'json',
             success: function (result) {
@@ -45,7 +77,7 @@ function checkSelectMarca() {
     var e = document.getElementById("selectMarca");
     var itemSelecionado = e.options[e.selectedIndex].value;
     if (itemSelecionado != '') {
-        ajax("Home/Index", function (result) {
+        ajax("Home/Data", function (result) {
             veiculos = result;
             setValues(itemSelecionado);
         });

@@ -517,10 +517,10 @@
     <Content Include="Views\Veiculos\Renault.cshtml" />
     <Content Include="Views\Veiculos\Toyota.cshtml" />
     <Content Include="Views\Veiculos\Volkswagen.cshtml" />
+    <Content Include="Views\Veiculos\Busca.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

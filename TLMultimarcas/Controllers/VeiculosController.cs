@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TLMultimarcas.Models;
+using static TLMultimarcas.Controllers.HomeController;
 
 namespace TLMultimarcas.Controllers
 {
@@ -39,6 +42,71 @@ namespace TLMultimarcas.Controllers
                          select a;
 
             return View(condition);
+        }
+
+        //public class DadosBusca
+        //{
+        //    public string Marca { get; set; }
+        //    public string Modelo { get; set; }
+        //    public string Preco { get; set; }
+        //}
+
+        //public ActionResult CreateCover(DadosBusca dados)
+        //{
+        //    return Json(dados, JsonRequestBehavior.AllowGet);
+        //}
+
+        //public ActionResult Busca(DadosBusca dados)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(dados.Marca);
+        //    var search = from a in db.Veiculo
+        //                    orderby a.IdVeiculo
+        //                    where a.IdMarca.ToString() == dados.Marca
+        //                    select a;
+        //    return View(search);
+        //}
+        
+        [HttpPost]
+        public ActionResult Busca(string idMa, string idMo, string Val)
+        {
+            string str = "data source=.;initial catalog=TLMultimarcas;integrated security=True";
+            SqlConnection con = new SqlConnection(str);
+            string query = "SELECT Ma.IdMarca, Ma.NomeMarca, Mo.IdModelo, Mo.NomeModelo, P.ValorPotencia, Valor FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo INNER JOIN Marca Ma on Ma.IdMarca = V.IdMarca INNER JOIN Potencia P on P.IdPotencia = V.IdPotencia";
+            if (idMa != null)
+            {
+                System.Diagnostics.Debug.WriteLine("IdMarca - " + idMa);
+                query = query + " WHERE Ma.IdMarca = " + idMa;
+                if (idMo != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("IdModelo - " + idMo);
+                    query = query + " and Mo.IdModelo = " + idMo;
+                }
+                if (Val != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("ValorConjunto - " + Val);
+                    query = query + " and " + Val;
+                }
+                System.Diagnostics.Debug.WriteLine(query);
+            }
+            if (Val != null && idMa == null)
+            {
+                System.Diagnostics.Debug.WriteLine("ValorSolo - " + Val);
+                query = query + " WHERE " + Val;
+            }
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader rdr = cmd.ExecuteReader();
+            var list = new List<Select>();
+            while (rdr.Read())
+            {
+                list.Add(new Select { IdMarca = rdr[0].ToString(),
+                    NomeMarca = rdr[1].ToString(),
+                    IdModelo = rdr[2].ToString(),
+                    NomeModelo = rdr[3].ToString(),
+                    ValorPotencia = rdr[4].ToString(),
+                    Valor = rdr[5].ToString() });
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Chevrolet()
