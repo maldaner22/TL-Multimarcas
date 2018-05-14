@@ -36,5 +36,23 @@ namespace TLMultimarcas.Controllers
             return View(usuario);
         }
 
+        public ActionResult Editar(long id)
+        {
+            Usuario usuario = db.Usuario.SingleOrDefault(m => m.IdUsuario == id);
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(usuario).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(usuario);
+        }
+
     }
 }

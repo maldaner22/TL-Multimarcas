@@ -1,10 +1,10 @@
 ﻿@model TLMultimarcas.Models.Usuario
 
 @{
-    ViewBag.Title = "Adicionar";
+    ViewBag.Title = "Editar";
 }
 
-<h2>Adicionar</h2>
+<h2>Editar</h2>
 
 @using (Html.BeginForm())
 {
@@ -14,6 +14,8 @@
         <h4>Usuario</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IdUsuario)
+
         <div class="form-group">
             @Html.LabelFor(model => model.NomeFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -22,29 +24,11 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoginFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.LoginFuncionario)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.SenhaFuncionario)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmailFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmailFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.EmailFuncionario)
 
         <div class="form-group">
             @Html.LabelFor(model => model.AdicionarFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -96,7 +80,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -105,5 +89,4 @@
 <div>
     @Html.ActionLink("Voltar", "Index")
 </div>
-
 
