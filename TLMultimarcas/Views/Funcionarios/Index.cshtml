@@ -78,7 +78,7 @@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Editar", new { id = item.IdUsuario }) |
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.IdUsuario }, new { @class = "excluirFunc" })
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.IdUsuario }, new { @class = "excluir" })
             </td>
         </tr>
     }
@@ -88,3 +88,34 @@
 <div>
     <a href="~/Administrativo/Index">Voltar</a>
 </div>
+
+
+@section Scripts{
+    <script>
+        $(function () {
+            var linhaAtual;
+            $(".excluir").on("click", function () {
+                if (confirm("Confirma a exclusão do funcionário?")) {
+                    var urlExclusao = $(this).attr("href");
+                    linhaAtual = $(this).closest("tr");
+
+                    $.ajax({
+                        url: urlExclusao,
+                        type: "POST"
+                    }).done(function (excluiu) {
+                        if (excluiu) {
+                            linhaAtual.remove();
+                        } else {
+                            alert("Ocorreu algum problema na exclusão do funcionário :(");
+                        }
+                    }).fail(function () {
+                        alert("Ocorreu algum erro :(");
+                    });
+                }
+
+                return false;
+            });
+        });
+
+    </script>
+}

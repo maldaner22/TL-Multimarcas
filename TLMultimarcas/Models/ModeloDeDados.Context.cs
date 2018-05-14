@@ -35,5 +35,10 @@ namespace TLMultimarcas.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Veiculo> Veiculo { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+
+        internal void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

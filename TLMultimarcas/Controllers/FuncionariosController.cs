@@ -54,5 +54,21 @@ namespace TLMultimarcas.Controllers
             return View(usuario);
         }
 
+        [HttpPost]
+        public string Excluir(long id)
+        {
+            try
+            {
+                Usuario usuario = db.Usuario.Find(id);
+                db.Usuario.Remove(usuario);
+                db.SaveChanges();
+                return Boolean.TrueString;
+            }
+            catch
+            {
+                return Boolean.FalseString;
+            }
+        }
+
     }
 }
