@@ -19,6 +19,11 @@
                 </div>
                 <div class="row">
                     <div class="col-12 card-informations">
+                        @Html.DisplayFor(modelItem => item.TipoCondicao)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-informations">
                         @Html.DisplayFor(modelItem => item.ValorPotencia).ToHtmlString().Replace(",", ".")  - @Html.DisplayFor(modelItem => item.TipoCombustivel)
                     </div>
                 </div>

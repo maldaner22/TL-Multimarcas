@@ -13,6 +13,7 @@ namespace TLMultimarcas.Models
         public string NomeModelo;
         public string ValorPotencia;
         public string TipoCombustivel;
+        public string TipoCondicao;
         public string Valor;
     }
 }

@@ -49,7 +49,7 @@ namespace TLMultimarcas.Controllers
         {
             string str = "data source=.;initial catalog=TLMultimarcas;integrated security=True";
             SqlConnection con = new SqlConnection(str);
-            string query = "SELECT Ma.IdMarca, Ma.NomeMarca, Mo.IdModelo, Mo.NomeModelo, P.ValorPotencia, C.TipoCombustivel, Valor FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo INNER JOIN Marca Ma on Ma.IdMarca = V.IdMarca INNER JOIN Potencia P on P.IdPotencia = V.IdPotencia INNER JOIN Combustivel C on C.IdCombustivel = V.IdCombustivel";
+            string query = "SELECT Ma.IdMarca, Ma.NomeMarca, Mo.IdModelo, Mo.NomeModelo, P.ValorPotencia, C.TipoCombustivel, Co.TipoCondicao, Valor FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo INNER JOIN Marca Ma on Ma.IdMarca = V.IdMarca INNER JOIN Potencia P on P.IdPotencia = V.IdPotencia INNER JOIN Combustivel C on C.IdCombustivel = V.IdCombustivel INNER JOIN Condicao Co on Co.IdCondicao = V.IdCondicao";
             if (idMa != null)
             {
                 System.Diagnostics.Debug.WriteLine("IdMarca - " + idMa);
@@ -85,7 +85,8 @@ namespace TLMultimarcas.Controllers
                     NomeModelo = rdr[3].ToString(),
                     ValorPotencia = rdr[4].ToString(),
                     TipoCombustivel = rdr[5].ToString(),
-                    Valor = rdr[6].ToString()
+                    TipoCondicao = rdr[6].ToString(),
+                    Valor = rdr[7].ToString()
                 });
             }
             Session["result"] = list;
