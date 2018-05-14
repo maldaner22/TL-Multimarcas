@@ -54,7 +54,7 @@
             <div class="col-lg-4"></div>
             <div class="col-lg-8">
                 <select class="fore-control" id="selectModelo">
-                    <option value="">Selecione</option>
+                    <option value="null">Selecione</option>
                 </select>
             </div>
         </div>
@@ -73,14 +73,14 @@
             <div class="col-lg-4"></div>
             <div class="col-lg-8">
                 <select class="fore-control" id="selectValor">
-                    <option value="">Selecione</option>
-                    <option value="1">Abaixo de 20.000</option>
-                    <option value="2">De 20.000 a 30.000</option>
-                    <option value="3">De 30.000 a 40.000</option>
-                    <option value="4">De 40.000 a 50.000</option>
-                    <option value="5">De 50.000 a 60.000</option>
-                    <option value="6">De 60.000 a 70.000</option>
-                    <option value="7">Acima de 70.000</option>
+                    <option value="null">Selecione</option>
+                    <option value="Valor < 20000">Abaixo de 20000</option>
+                    <option value="20000 < Valor and Valor < 30000">De 20000 a 30000</option>
+                    <option value="30000 < Valor and Valor < 40000">De 30000 a 40000</option>
+                    <option value="40000 < Valor and Valor < 50000">De 40000 a 50000</option>
+                    <option value="50000 < Valor and Valor < 60000">De 50000 a 60000</option>
+                    <option value="60000 < Valor and Valor < 70000">De 60000 a 70000</option>
+                    <option value="70000 < Valor">Acima de 70000</option>
                 </select>
             </div>
         </div>
@@ -95,7 +95,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <button class="btnHome" id="buttonHome">Buscar <i class="fas fa-search"></i></button>
+                <button class="btnHome" id="buttonHome" OnServerClick="btnHome_OnClick" runat="server">Buscar <i class="fas fa-search"></i></button>
             </div>
         </div>
     </div>

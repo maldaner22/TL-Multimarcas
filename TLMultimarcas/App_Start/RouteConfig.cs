@@ -15,8 +15,8 @@ namespace TLMultimarcas
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{idMa}/{idMo}",
+                defaults: new { controller = "Home", action = "Index", idMa = UrlParameter.Optional, idMo = UrlParameter.Optional }
             );
         }
     }
