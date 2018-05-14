@@ -27,9 +27,9 @@ namespace TLMultimarcas.Controllers
         public ActionResult Seminovos()
         {
             var condition = from a in db.Veiculo
-                         orderby a.IdCondicao
-                         where a.IdCondicao == 2
-                         select a;
+                            orderby a.IdCondicao
+                            where a.IdCondicao == 2
+                            select a;
 
             return View(condition);
         }
@@ -37,41 +37,19 @@ namespace TLMultimarcas.Controllers
         public ActionResult Usados()
         {
             var condition = from a in db.Veiculo
-                         orderby a.IdCondicao
-                         where a.IdCondicao == 3
-                         select a;
+                            orderby a.IdCondicao
+                            where a.IdCondicao == 3
+                            select a;
 
             return View(condition);
         }
 
-        //public class DadosBusca
-        //{
-        //    public string Marca { get; set; }
-        //    public string Modelo { get; set; }
-        //    public string Preco { get; set; }
-        //}
-
-        //public ActionResult CreateCover(DadosBusca dados)
-        //{
-        //    return Json(dados, JsonRequestBehavior.AllowGet);
-        //}
-
-        //public ActionResult Busca(DadosBusca dados)
-        //{
-        //    System.Diagnostics.Debug.WriteLine(dados.Marca);
-        //    var search = from a in db.Veiculo
-        //                    orderby a.IdVeiculo
-        //                    where a.IdMarca.ToString() == dados.Marca
-        //                    select a;
-        //    return View(search);
-        //}
-        
         [HttpPost]
         public ActionResult Busca(string idMa, string idMo, string Val)
         {
             string str = "data source=.;initial catalog=TLMultimarcas;integrated security=True";
             SqlConnection con = new SqlConnection(str);
-            string query = "SELECT Ma.IdMarca, Ma.NomeMarca, Mo.IdModelo, Mo.NomeModelo, P.ValorPotencia, Valor FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo INNER JOIN Marca Ma on Ma.IdMarca = V.IdMarca INNER JOIN Potencia P on P.IdPotencia = V.IdPotencia";
+            string query = "SELECT Ma.IdMarca, Ma.NomeMarca, Mo.IdModelo, Mo.NomeModelo, P.ValorPotencia, C.TipoCombustivel, Valor FROM Veiculo V INNER JOIN Modelo Mo on Mo.IdModelo = V.IdModelo INNER JOIN Marca Ma on Ma.IdMarca = V.IdMarca INNER JOIN Potencia P on P.IdPotencia = V.IdPotencia INNER JOIN Combustivel C on C.IdCombustivel = V.IdCombustivel";
             if (idMa != null)
             {
                 System.Diagnostics.Debug.WriteLine("IdMarca - " + idMa);
@@ -99,14 +77,25 @@ namespace TLMultimarcas.Controllers
             var list = new List<Select>();
             while (rdr.Read())
             {
-                list.Add(new Select { IdMarca = rdr[0].ToString(),
+                list.Add(new Select
+                {
+                    IdMarca = rdr[0].ToString(),
                     NomeMarca = rdr[1].ToString(),
                     IdModelo = rdr[2].ToString(),
                     NomeModelo = rdr[3].ToString(),
                     ValorPotencia = rdr[4].ToString(),
-                    Valor = rdr[5].ToString() });
+                    TipoCombustivel = rdr[5].ToString(),
+                    Valor = rdr[6].ToString()
+                });
             }
+            Session["result"] = list;
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Resultado()
+        {
+            var results = (List<Select>)Session["result"];
+            return View(results);
         }
 
         public ActionResult Chevrolet()
