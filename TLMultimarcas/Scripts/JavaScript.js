@@ -15,10 +15,8 @@ function search() {
     Veiculo.Preco = null;
     if (IdMarca != "") {
         Veiculo.Marca = IdMarca;
-        //url = url + IdMarca;
         if (IdModelo != "null") {
             Veiculo.Modelo = IdModelo;
-            //url = url + "/" + IdModelo;
         }
     }
     if (Valor != "null") {
@@ -38,6 +36,7 @@ function search() {
             alert("I'm AJAX and I don't like to work");
         }
     });
+    window.location.href = "Veiculos/Resultado"
 }
 
 function setValues(id) {
@@ -68,7 +67,7 @@ function ajax(url, cb) {
                 cb(result);
             },
             error: function () {
-                alert("No data received");
+                alert("I'm AJAX and I don't like to work");
             }
         });
 }

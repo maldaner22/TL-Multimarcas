@@ -21,15 +21,15 @@ namespace TLMultimarcas.Controllers
             return View();
         }
 
-        public class Select
-        {
-            public string IdMarca;
-            public string NomeMarca;
-            public string IdModelo;
-            public string NomeModelo;
-            public string ValorPotencia;
-            public string Valor;
-        }
+        //public class Select
+        //{
+        //    public string IdMarca;
+        //    public string NomeMarca;
+        //    public string IdModelo;
+        //    public string NomeModelo;
+        //    public string ValorPotencia;
+        //    public string Valor;
+        //}
 
         [HttpPost]
         public ActionResult Data()

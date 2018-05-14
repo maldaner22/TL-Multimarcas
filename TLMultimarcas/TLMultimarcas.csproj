@@ -196,6 +196,7 @@
     <Compile Include="Models\Potencia.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Select.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
@@ -519,6 +520,7 @@
     <Content Include="Views\Funcionarios\Index.cshtml" />
     <Content Include="Views\Funcionarios\Adicionar.cshtml" />
     <Content Include="Views\Funcionarios\Editar.cshtml" />
+    <Content Include="Views\Veiculos\Resultado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
